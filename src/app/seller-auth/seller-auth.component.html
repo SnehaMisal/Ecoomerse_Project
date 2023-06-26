@@ -1,0 +1,46 @@
+<div class="seller-auth">
+    <div class="container" *ngIf="!showLogin">
+        <h2 class="login-title">Sign Up</h2>
+        <form class="login-form" #sellerSignUp="ngForm" (ngSubmit)="signUp(sellerSignUp.value)">
+            <div>
+                <label for="name">Name </label>
+                <input id="name" type="text" ngModel placeholder="Eren Buruk" name="name" required />
+            </div>
+
+            <div>
+                <label for="email">Email </label>
+                <input id="email" type="email" ngModel placeholder="me@example.com" name="email" required />
+            </div>
+
+            <div>
+                <label for="password">Password </label>
+                <input id="password" type="password" ngModel placeholder="password" name="password" required />
+            </div>
+
+            <button class="btn btn--form" type="submit" value="Sign Up">
+                Sign Up
+          </button>
+            <a (click)="openLogin()"> Already Have Account? Click to Login</a>
+        </form>
+    </div>
+    <div class="container" *ngIf="showLogin">
+        <h2 class="login-title">Log in</h2>
+        <h6 class="text-danger">{{authError}}</h6>
+        <form class="login-form" #sellerLogIn="ngForm" (ngSubmit)="logIn(sellerLogIn.value)">
+            <div>
+                <label for="email">Email </label>
+                <input id="email" type="email" ngModel placeholder="me@example.com" name="email" required />
+            </div>
+
+            <div>
+                <label for="password">Password </label>
+                <input id="password" type="password" ngModel placeholder="password" name="password" required />
+            </div>
+
+            <button class="btn btn--form" type="submit" value="Log in">
+            Log in
+          </button>
+            <a (click)="openSignUp()"> Don't Have Account? Click to Sign Up</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <a routerLink="">fashion</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <form action="/action_page.php" class="header_serach d-flex" *ngIf="menuType=='default'">
+                    <input type="text" placeholder="Search.." class="form-control" name="search">
+                    <button type="submit" class="btn btn-primary"> <span class="icon_search search-switch"></span></button>
+                </form>
+            </div>
+            <div class="col-xl-6 col-lg-4" [ngSwitch]="menuType">
+                <nav class="header__menu" *ngSwitchCase="'default'">
+                    <ul>
+                        <li class="active">
+                            <a routerLink="/">Home</a>
+                        </li>
+                        <li>
+                            <a routerLink="/seller-auth">Seller</a>
+                        </li>
+                        <li>
+                            <a href="#">LogIn</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon_bag_alt"></span>
+                                <div class="tip">0</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop.html">Shop</a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <nav class="header__menu" *ngSwitchCase="'seller'">
+                    <ul>
+                        <li class="active">
+                            <a routerLink="/">Product List</a>
+                        </li>
+                        <li>
+                            <a routerLink="/seller-auth">Add Product</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#">Women’s</a>
+                        </li>
+                        <li>
+                            <a href="#">Men’s</a>
+                        </li>
+                        <li>
+                            <a href="shop.html">Shop</a>
+                        </li> -->
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 d-none" [ngSwitch]="menuType">
+                <div class="header__right" *ngSwitchCase="'default'">
+                    <div class="header__right__auth">
+                        <a href="#">Login</a>
+                        <a href="#">Register</a>
+                    </div>
+                    <ul class="header__right__widget">
+                        <!-- <li>
+                            <span class="">Seller Name</span>
+                        </li> -->
+                        <!-- <li>
+                            <a href="#">
+                                <span class="icon_heart_alt"></span>
+                                <div class="tip">2</div>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="#">
+                                <span class="icon_bag_alt"></span>
+                                <div class="tip">0</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__right" *ngSwitchCase="'seller'">
+                    <div class="header__right__auth">
+                        <a href="#">LogOut</a>
+                    </div>
+                    <ul class="header__right__widget">
+                        <li>
+                            <span class="">Seller Name</span>
+                        </li>
+                        <!-- <li>
+                            <a href="#">
+                                <span class="icon_heart_alt"></span>
+                                <div class="tip">2</div>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="#">
+                                <span class="icon_bag_alt"></span>
+                                <div class="tip">2</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
